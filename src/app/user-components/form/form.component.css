@@ -1,0 +1,22 @@
+div.form-container {
+  margin: auto;
+  margin: 1rem;
+  text-align: center;
+}
+
+div.example-container {
+  margin: auto;
+  width: 50%;
+  min-width: 20rem;
+  max-width: 30rem;
+  height: 4rem;
+  margin-bottom: 1.5rem;
+}
+
+mat-form-field.form-field {
+  width: 100%;
+}
+
+div button {
+  margin: 0rem 1rem;
+}

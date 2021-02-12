@@ -1,0 +1,95 @@
+<form [formGroup]="formGp" (ngSubmit)="onSubmit()">
+  <div class="form-container">
+    <div class="example-container">
+      <mat-form-field
+        appearance="fill"
+        class="form-field"
+        [hideRequiredMarker]="true"
+        hintLabel="min 3 charecters required"
+      >
+        <mat-label>Enter your Name</mat-label>
+        <input
+          matInput
+          placeholder="ex:superstar"
+          [formControlName]="'name'"
+          required
+          minlength="3"
+        />
+        <mat-error *ngIf="name.invalid && formGp.touched"
+          >enter valid name</mat-error
+        >
+      </mat-form-field>
+    </div>
+
+    <div class="example-container">
+      <mat-form-field
+        appearance="fill"
+        class="form-field"
+        [hideRequiredMarker]="true"
+      >
+        <mat-label>Enter your email</mat-label>
+        <input
+          matInput
+          placeholder="pat@example.com"
+          [formControlName]="'email'"
+          required
+          email
+        />
+        <mat-error *ngIf="email.invalid">enter valid email</mat-error>
+      </mat-form-field>
+    </div>
+
+    <div class="example-container">
+      <mat-form-field
+        appearance="fill"
+        class="form-field"
+        [hideRequiredMarker]="true"
+      >
+        <mat-label>Choose a date(dob)</mat-label>
+        <input matInput [matDatepicker]="picker" formControlName="dob" />
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+        <mat-error *ngIf="dob.invalid">pick a date</mat-error>
+      </mat-form-field>
+    </div>
+
+    <div class="example-container">
+      <mat-form-field
+        appearance="fill"
+        class="form-field"
+        [hideRequiredMarker]="true"
+        hintLabel="without country code"
+      >
+        <mat-label>Enter your mobile number</mat-label>
+        <input
+          matInput
+          type="text"
+          placeholder="ex:9999444455"
+          [formControlName]="'mobile'"
+          required
+          maxlength="10"
+        />
+        <mat-error *ngIf="mobile.invalid">enter valid mobile number</mat-error>
+      </mat-form-field>
+    </div>
+
+    <div>
+      <button
+        mat-stroked-button
+        color="accent"
+        type="submit"
+        [disabled]="formGp.invalid"
+      >
+        submit
+      </button>
+      <button
+        mat-stroked-button
+        color="warn"
+        type="button"
+        (click)="formGp.reset()"
+      >
+        cancel
+      </button>
+    </div>
+  </div>
+</form>

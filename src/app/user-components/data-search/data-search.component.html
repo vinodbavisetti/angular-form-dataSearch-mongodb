@@ -1,0 +1,43 @@
+<div class="container">
+  <form ngNoForm class="form-div" (submit)="onSubmit($event)">
+    <mat-form-field
+      appearance="outline"
+      class="form-field"
+      [hideRequiredMarker]="true"
+      hintLabel="min 3 charecters"
+    >
+      <mat-label>Enter any name</mat-label>
+      <input
+        matInput
+        placeholder="ex:superstar"
+        [formControl]="name"
+        required
+        minlength="3"
+      />
+      <mat-error *ngIf="name.invalid">enter valid name</mat-error>
+    </mat-form-field>
+    <button
+      class="submit-button"
+      mat-raised-button
+      color="accent"
+      type="submit"
+      [disabled]="name.invalid && name.dirty"
+    >
+      submit
+    </button>
+  </form>
+  <div class="mat-elevation-z8 card-container">
+    <div style="height: 1px"></div>
+    <h2 class="mat-h2">database results</h2>
+    <mat-divider></mat-divider>
+    <div *ngIf="data" class="card-data">
+      <P>name &nbsp;&nbsp;&nbsp;: &nbsp;&nbsp; {{ data.name }}</P>
+      <P>email &nbsp;&nbsp; : &nbsp;&nbsp; {{ data.email }}</P>
+      <P
+        >dob &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : &nbsp;&nbsp;
+        {{ data.dob | date }}</P
+      >
+      <P>mobile &nbsp;: &nbsp;&nbsp; {{ data.mobile }}</P>
+    </div>
+  </div>
+</div>
